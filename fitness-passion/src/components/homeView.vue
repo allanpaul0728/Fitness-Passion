@@ -100,22 +100,20 @@
           </div>
         </div>
         <div class="pb-3 mt-3 mx-5 text-left">
-          <router-link active-class="active" to="/workoutsProg">
           <button v-on:click="exercisePage('workoutsProg')" class="btn btn-secondary btn-md">Submit</button>
-          </router-link>
         </div>
       </div>
         </div>
         </div>
-        <div>
+        <!-- <div>
           <workoutsProg v-if="page ==='workoutsProg'"/>
-        </div>
+        </div> -->
     
       
   </template>
   
   <script>
-  import workoutsProg from './workoutsProg'
+//   import workoutsProg from './workoutsProg'
   
   export default {
     name: 'homeView',
@@ -131,9 +129,9 @@
         program: "",
       };
     },
-    components: {
-      workoutsProg,
-    },
+    // components: {
+    //   workoutsProg,
+    // },
     methods: {
       exercisePage(newPage) {
         this.page = newPage;
