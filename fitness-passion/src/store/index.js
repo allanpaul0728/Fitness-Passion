@@ -1122,7 +1122,7 @@ export default new Vuex.Store({
                 _id: '62f774824683ae18a6ff52b5',
                 muscle: "Legs",
                 muscle_term: "Legs or Thigh",
-                target_muscle: "Front & Rear Leg, Inner & Outer Thigh, Glute, Hamstrings, Quads",
+                target_muscle: ["Front & Rear Leg", "Inner & Outer Thigh", "Glute", "Hamstrings", "Quads"],
                 target_muscleTerm: "Femoris, Iliotibial Tract, Gracilis, Gluteus Medius & Maximus",
                 workout: [
                     {
@@ -1392,7 +1392,7 @@ export default new Vuex.Store({
                 _id: '62f776ac4683ae18a6ff52bb',
                 muscle: "Abs",
                 muscle_term: "Abdominal",
-                target_muscle: "Abs, Oblique",
+                target_muscle: ["Abs", "Oblique"],
                 target_muscleTerm: "Rectus Abdominis, Oblique",
                 workout: [
                     {
@@ -1597,7 +1597,7 @@ export default new Vuex.Store({
     },
     mutations: {
         showWorkouts: function (state, nWorkout) {
-            state.workouts.push({
+            state.workouts.get({
                 _id: nWorkout.id,
                 muscle: nWorkout.muscle,
                 muscle_term: nWorkout.muscle_term,

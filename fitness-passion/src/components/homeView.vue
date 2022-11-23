@@ -55,18 +55,66 @@
             <label class="form-check-label" for="flexCheckDefault">
               Chest
             </label>
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" v-on:check="muscle" value="muscle" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              Upper Chest
+            </label>
+            </div>
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" v-on:check="muscle" value="muscle" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              Mid Chest
+            </label>
+            </div>
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" v-on:check="muscle" value="muscle" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              Lower Chest
+            </label>
+            </div>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value="muscle" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
               Shoulder
             </label>
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" v-on:check="muscle" value="muscle" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              Front Delt
+            </label>
+            </div>
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" v-on:check="muscle" value="muscle" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              Mid Delt
+            </label>
+            </div>
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" v-on:check="muscle" value="muscle" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              Rear Delt
+            </label>
+            </div>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value="muscle" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
               Back
             </label>
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" v-on:check="muscle" value="muscle" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              Upper Back
+            </label>
+            </div>
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" v-on:check="muscle" value="muscle" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              Mid & Lower Back
+            </label>
+            </div>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value="muscle" id="flexCheckDefault">
@@ -100,48 +148,178 @@
           </div>
         </div>
         <div class="pb-3 mt-3 mx-5 text-left">
-          <button v-on:click="exercisePage('workoutsProg')" class="btn btn-secondary btn-md">Submit</button>
+          <router-link to="/workouts">
+          <button class="btn btn-secondary btn-md">Submit</button>
+          </router-link>
         </div>
+        <!-- <workoutsProg/> -->
       </div>
         </div>
         </div>
-        <!-- <div>
-          <workoutsProg v-if="page ==='workoutsProg'"/>
-        </div> -->
-    
-      
   </template>
   
   <script>
-//   import workoutsProg from './workoutsProg'
+  // import workoutsProg from './workoutsProg'
   
   export default {
     name: 'homeView',
     data: function() {
       return {
-        page: "home",
         fullname: "",
         emailaddress: "",
         username: "",
         gender: "male",
         fitnessgoal: "",
         difficulty: "",
-        program: "",
+        chest: true,
+        shoulder: true,
+        back: true,
+        biceps: true,
+        triceps: true,
+        legs: true,
+        forearm: true,
+        abdominal: true,
       };
     },
     // components: {
     //   workoutsProg,
     // },
-    methods: {
-      exercisePage(newPage) {
-        this.page = newPage;
-      }
-    },
     computed: {
-      workoutsProg () {
-        return this.$store.state.workouts
-      }
-    }
+    searchFilter() {
+      return this.workouts
+        .filter((w) => {
+          console.log(w)
+          if (this.chest && this.chest && this.back && this.biceps && this.triceps && this.legs && this.forearm && this.abdominal) {
+            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
+              w.program.includes("biceps") || w.program.includes("triceps") || w.program.includes("legs") ||
+              w.program.includes("forearm") || w.program.includes("abdominal");
+          }
+          // Start of 7 Programs
+          if (this.chest && this.shoulder && this.back && this.biceps && this.triceps && this.legs && this.forearm) {
+            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
+            w.program.includes("biceps") || w.program.includes("triceps") || w.program.includes("legs") ||
+            w.program.includes("forearm");
+          }
+          if (this.chest && this.shoulder && this.back && this.biceps && this.triceps && this.legs && this.abdominal) {
+            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
+            w.program.includes("biceps") || w.program.includes("triceps") || w.program.includes("legs") ||
+            w.program.includes("abdominal");
+          }
+          if (this.chest && this.shoulder && this.back && this.biceps && this.triceps && this.forearm && this.abdominal) {
+            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
+            w.program.includes("biceps") || w.program.includes("triceps") || w.program.includes("forearm") ||
+            w.program.includes("abdominal");
+          }
+          if (this.chest && this.shoulder && this.back && this.biceps && this.legs && this.forearm && this.abdominal) {
+            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
+            w.program.includes("biceps") || w.program.includes("legs") || w.program.includes("forearm") ||
+            w.program.includes("abdominal");
+          }
+          if (this.chest && this.shoulder && this.back && this.triceps && this.legs && this.forearm && this.abdominal) {
+            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
+            w.program.includes("triceps") || w.program.includes("legs") || w.program.includes("forearm") ||
+            w.program.includes("abdominal");
+          }
+          if (this.chest && this.shoulder && this.biceps && this.triceps && this.legs && this.forearm && this.abdominal) {
+            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("biceps") ||
+            w.program.includes("triceps") || w.program.includes("legs") || w.program.includes("forearm") ||
+            w.program.includes("abdominal");
+          }
+          if (this.chest && this.back && this.biceps && this.triceps && this.legs && this.forearm && this.abdominal) {
+            return w.program.includes("chest") || w.program.includes("back") || w.program.includes("biceps") ||
+            w.program.includes("triceps") || w.program.includes("legs") || w.program.includes("forearm") ||
+            w.program.includes("abdominal");
+          }
+          if (this.shoulder && this.back && this.biceps && this.triceps && this.legs && this.forearm && this.abdominal) {
+            return w.program.includes("shoulder") || w.program.includes("back") || w.program.includes("biceps") ||
+            w.program.includes("triceps") || w.program.includes("legs") || w.program.includes("forearm") ||
+            w.program.includes("abdominal");
+          }
+          // End of 7 Programs
+          // Start of 6 Programs
+          if (this.chest && this.shoulder && this.back && this.biceps && this.triceps && this.legs) {
+            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
+            w.program.includes("biceps") || w.program.includes("triceps") || w.program.includes("legs");
+          }
+          if (this.chest && this.shoulder && this.back && this.biceps && this.triceps && this.abdominal) {
+            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
+            w.program.includes("biceps") || w.program.includes("triceps") || w.program.includes("abdominal");
+          }
+          if (this.chest && this.shoulder && this.back && this.biceps && this.forearm && this.abdominal) {
+            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
+            w.program.includes("biceps") || w.program.includes("forearm") || w.program.includes("abdominal");
+          }
+          if (this.chest && this.shoulder && this.back && this.legs && this.forearm && this.abdominal) {
+            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
+            w.program.includes("legs") || w.program.includes("forearm") || w.program.includes("abdominal");
+          }
+          if (this.chest && this.shoulder && this.triceps && this.legs && this.forearm && this.abdominal) {
+            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("triceps") ||
+            w.program.includes("legs") || w.program.includes("forearm") || w.program.includes("abdominal");
+          }
+          if (this.chest && this.biceps && this.triceps && this.legs && this.forearm && this.abdominal) {
+            return w.program.includes("chest") || w.program.includes("biceps") || w.program.includes("triceps") ||
+            w.program.includes("legs") || w.program.includes("forearm") || w.program.includes("abdominal");
+          }
+          if (this.back && this.biceps && this.triceps && this.legs && this.forearm && this.abdominal) {
+            return w.program.includes("back") || w.program.includes("biceps") || w.program.includes("triceps") ||
+            w.program.includes("legs") || w.program.includes("forearm") || w.program.includes("abdominal");
+          }
+          // End of 6 Programs
+          // Start of 5 Programs
+          if (this.chest && this.shoulder && this.back && this.biceps && this.triceps) {
+            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
+            w.program.includes("biceps") || w.program.includes("triceps");
+          }
+          if (this.chest && this.shoulder && this.back && this.biceps && this.abdominal) {
+            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
+            w.program.includes("biceps") || w.program.includes("abodminal");
+          }
+          if (this.chest && this.shoulder && this.back && this.forearm && this.abdominal) {
+            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
+            w.program.includes("forearm") || w.program.includes("abodminal");
+          }
+          if (this.chest && this.shoulder && this.legs && this.forearm && this.abdominal) {
+            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("legs") ||
+            w.program.includes("forearm") || w.program.includes("abodminal");
+          }
+          if (this.chest && this.triceps && this.legs && this.forearm && this.abdominal) {
+            return w.program.includes("chest") || w.program.includes("triceps") || w.program.includes("legs") ||
+            w.program.includes("forearm") || w.program.includes("abodminal");
+          }
+          if (this.biceps && this.triceps && this.legs && this.forearm && this.abdominal) {
+            return w.program.includes("biceps") || w.program.includes("triceps") || w.program.includes("legs") ||
+            w.program.includes("forearm") || w.program.includes("abodminal");
+          }
+          // End of 5 Programs
+          // Start of 4 Programs
+          if (this.chest && this.shoulder && this.back && this.biceps) {
+            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
+            w.program.includes("biceps");
+          }
+          if (this.chest && this.shoulder && this.back && this.abdominal) {
+            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
+            w.program.includes("abdominal");
+          }
+          if (this.chest) {
+            return w.program.includes("chest");
+          }
+          if (this.shoulder) {
+            return w.program.includes("shoulder");
+          }
+          if (this.back) {
+            return w.program.includes("back");
+          }
+          return true;
+        })
+        .filter((w) => {
+          if (this.Difficulty != "" ) {
+            return (w.difficulty) <= this.difficulty;
+          }
+          return true;
+        });
+    },
+  },
   }
   </script>
   

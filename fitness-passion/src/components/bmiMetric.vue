@@ -1,6 +1,14 @@
 <template>
-    <!-- <div class="row justify-content-center">
-      <div class="col-12 col-md-8 col-lg-4"> -->
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-4">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" active-class="active" href="/metric">Metric</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" active-class="active" href="/USunit">US Unit</a>
+            </li>
+        </ul>
         <div id="bmi">
             <div class="pt-4 me-5 mx-5 text-left">
                 <label class="form-label">Username</label>
@@ -36,13 +44,13 @@
                 <div class="pb-3 mt-3 mx-5 text-left">
                     <button v-on:click="BMIresult" class="btn btn-secondary btn-md">Calculate</button>
                 </div>
-                <div class="pt-4 me-5 mx-5 text-left">
+                <div class="pt-4 pb-4 me-5 mx-5 text-left">
                 <label class="form-label">BMI Result:</label>
                 <div v-if="bmi > 0">{{ bmi }}</div>
             </div>
             </div>
-      <!-- </div>
-    </div> -->
+      </div>
+    </div>
 </template>
 
 <script>
@@ -59,29 +67,6 @@ export default {
             bmi: 0,
         };
     },
-    // methods: {
-    //     BMIresult() {
-    //         if (this.unit === "metric") {
-    //             this.bmi = this.weight / this.height ** 2;
-    //             if (this.bmi < 15.5) {
-    //                 return this.bmi.toFixed(2) + 'underweight';
-    //             } else if (this.bmi < 18.5) {
-    //                 return this.bmi.toFixed(2) + 'slightly underweight';
-    //             }
-    //         } else {
-    //             this.bmi = (this.weight * 703) / this.height ** 2;
-    //         }
-    //     },
-    // }
-    // computed: {
-    //     BMIresult: function() {
-    //         this.bmi = this.weight / this.height ** 2;
-
-    //         if(bmi < 25) {
-    //             return 'Low' + this.bmi
-    //         }
-    //     }
-    // }
     methods: {
         BMIresult() {
             this.bmi = this.weight / this.height ** 2;

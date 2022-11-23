@@ -1,77 +1,61 @@
 <template>
-  
-  <div id="homepage">
+  <div id="App">
     <section>
       <nav class="navbar navbar-expand-lg bg-light mb-3">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Fitness Passion</a>
+          <router-link to="/home" class="navbar-brand">Fitness Passion</router-link>        
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <router-link class="nav-link active" aria-current="homepage" href="#" v-on:click="changePage('home')" active-class="active" to="/home">Home</router-link>
+                <router-link to="/home" class="nav-link active" active-class="active">Home</router-link>
               </li>
               <li class="nav-item">
-                <router-link class="nav-link active" href="#" v-on:click="changePage('login')" active-class="active" to="/login">Login</router-link>
-              </li>
-              <li class="nav-item">
-                <router-link class="nav-link active" href="#" v-on:click="changePage('bmi')" active-class="active" to="/metric">BMI Calculator</router-link>
+                <router-link to="/metric" class="nav-link active" active-class="active">BMI Calculator</router-link>
               </li>
             </ul>
             <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <router-link to="/signup">
               <button class="btn btn-outline-success" type="submit">SignUp</button>
+              </router-link>
             </form>
           </div>
         </div>
       </nav>
-      <div><workoutsProg v-if="page ==='fitness'"/></div>
+      <router-view></router-view>
     </section>
-    <div class="container-fluid">
-      <homeView v-if="page === 'home'"/>
-      <loginView v-if="page === 'login'"/>
-      <bmiCalc v-if="page ==='bmi'"/>
-      <bmiMetric v-if="page === 'bmiMetric'"/>
-      <!-- <fitnessExer v-if="page ==='fitness'"/> -->
-    </div>
   </div>
 </template>
 
 <script>
-import homeView from './components/homeView'
-import loginView from './components/loginView'
-import bmiCalc from './components/bmiCalc'
-import workoutsProg from './components/workoutsProg'
-import bmiMetric from './components/bmiMetric'
+// import homeView from './components/homeView'
+// import loginView from './components/loginView'
+// import bmiCalc from './components/bmiCalc'
+// import workoutsProg from './components/workoutsProg'
+// import bmiMetric from './components/bmiMetric'
 
 export default {
   name: 'App',
   data: function() {
     return {
-      page: "home", 
     };
   },
   components: {
-    homeView,
-    loginView,
-    bmiCalc,
-    workoutsProg,
-    bmiMetric,
+    // homeView,
+    // loginView,
+    // bmiCalc,
+    // workoutsProg,
+    // bmiMetric,
   },
-  methods: {
-    changePage(newPage) {
-      this.page = newPage;
-    }
-  }
 }
 </script>
 
 <style>
-#homepage {
+#App {
   background-image: url(assets/backgroundB.jpg);
-  height: 100vh;
+  height: 120vh;
   width: 100%;
   background-size: cover;
   font-family: Avenir, Helvetica, Arial, sans-serif;

@@ -1,60 +1,62 @@
 import Vue from 'vue'
 import App from './App.vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
+import Vuex from 'vuex'
 
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import homeView from '@/components/homeView'
-import loginView from '@/components/loginView'
-import bmiCalc from '@/components/bmiCalc'
-import bmiMetric from '@/components/bmiMetric'
-import bmiUS from '@/components/bmiUS'
-import workoutsProg from '@/components/workoutsProg'
+import homeView from './components/homeView'
+import signUp from './components/signUp'
+import bmiCalc from './components/bmiCalc'
+import bmiMetric from './components/bmiMetric'
+import bmiUS from './components/bmiUS'
+import workoutsProg from './components/workoutsProg'
 
 import store from './store'
 
 Vue.config.productionTip = false;
 
-Vue.use(Router);
+Vue.use(VueRouter);
+Vue.use(Vuex);
 
-const router = new Router({
-
-  mode: "history",
-
-  routes: [
-      {
-          path: "/",
-          name: "home",
-          component: homeView
-      },
-      {
-          path: "/",
-          name: "login",
-          component: loginView
-      },
-      {
-          path: "/",
-          name: "bmi",
-          component: bmiCalc
-      },
-      {
-          path: "/metric",
-          name: "bmiMetric",
-          component: bmiMetric
-      },
-      {
-          path: "/USunit",
-          name: "bmiUS",
-          component: bmiUS
-      },
-      {
-          path: "/muscle",
-          name: "muscle",
-          component: workoutsProg
-      }
+const routes = [
+    {
+        path: "/home",
+        name: "homeView",
+        component: homeView
+    },
+    {
+        path: "/signup",
+        name: "signup",
+        component: signUp
+    },
+    {
+        path: "/bmi",
+        name: "bmi",
+        component: bmiCalc
+    },
+    {
+        path: "/metric",
+        name: "bmiMetric",
+        component: bmiMetric
+    },
+    {
+        path: "/USunit",
+        name: "bmiUS",
+        component: bmiUS
+    },
+    {
+        path: "/workouts",
+        name: "workouts",
+        component: workoutsProg
+    }
   ]
-});
+
+const router = new VueRouter({
+    mode: "history",
+    routes
+  });
 
 
 new Vue({

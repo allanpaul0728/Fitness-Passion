@@ -3,13 +3,12 @@
         <div class="col-12 col-md-8 col-lg-4">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <router-link class="nav-link" aria-current="page" href="#" active-class="active" to="/metric">Metric</router-link>
+                <a class="nav-link" aria-current="page" active-class="active" href="/metric">Metric</a>
             </li>
             <li class="nav-item">
-                <router-link class="nav-link" href="#" active-class="active" to="/USunit">US Unit</router-link>
+                <a class="nav-link" active-class="active" href="/USunit">US Unit</a>
             </li>
         </ul>
-        <router-view></router-view>
     </div>
 </div>
 </template>
@@ -37,6 +36,9 @@ export default {
 #bmi {
     background-color: hsla(44,30%,47%,.60);
     margin: auto;
+}
+.nav-item {
+    color: black;
 }
 
 </style>

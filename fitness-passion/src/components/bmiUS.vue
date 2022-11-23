@@ -1,6 +1,14 @@
 <template>
-    <!-- <div class="row justify-content-center">
-      <div class="col-12 col-md-8 col-lg-4"> -->
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-4">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" active-class="active" href="/metric">Metric</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" active-class="active" href="/USunit">US Unit</a>
+            </li>
+        </ul>
         <div id="bmi">
             <div class="pt-4 me-5 mx-5 text-left">
                 <label class="form-label">Username</label>
@@ -41,8 +49,8 @@
                 <div v-if="bmi > 0">{{ bmi }}</div>
             </div>
             </div>
-      <!-- </div>
-    </div> -->
+      </div>
+    </div>
 </template>
 
 <script>
