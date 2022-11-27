@@ -39,6 +39,7 @@ export default {
 }
 .nav-item {
     color: black;
+    font-weight: 10px;
 }
 
 </style>

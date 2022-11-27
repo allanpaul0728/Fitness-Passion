@@ -55,7 +55,7 @@ export default {
 <style>
 #App {
   background-image: url(assets/backgroundB.jpg);
-  height: 120vh;
+  height: 140vh;
   width: 100%;
   background-size: cover;
   font-family: Avenir, Helvetica, Arial, sans-serif;

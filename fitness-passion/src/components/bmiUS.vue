@@ -46,7 +46,7 @@
                 </div>
                 <div class="pt-4 me-5 mx-5 text-left">
                 <label class="form-label">BMI Result:</label>
-                <div v-if="bmi > 0">{{ bmi }}</div>
+                <div class="bmiOutput">{{ bmiOutput }}</div>
             </div>
             </div>
       </div>
@@ -64,18 +64,21 @@ export default {
             gender: "male",
             weight: "",
             height: "",
-            bmi: 0,
+            bmiOutput: "",
         };
     },
     methods: {
         BMIresult() {
-            this.bmi = (this.weight * 703) / this.height ** 2;
+            const bmi = ((this.weight * 703) / this.height ** 2).toFixed(2);
 
-            if (this.bmi < 25) {
-                return 'Low' 
-            }
-            else if (this.bmi >= 25 && this.bmi < 30) {
-                return 'moderate'
+            if(bmi < 18.5 && bmi > 0) {
+                this.bmiOutput = bmi + " " + '(Underweight)'
+            } else if(bmi >= 18.5 && bmi < 24.9) {
+                this.bmiOutput = bmi + " " + '(Normal)'
+            } else if(bmi >= 24.9 && bmi < 29.9) {
+                this.bmiOutput = bmi + " " + '(Overweight)'
+            } else if(bmi >= 29.9) {
+                this.bmiOutput = bmi + " " + '(Obese)'
             }
         } 
     }
@@ -88,6 +91,10 @@ export default {
     background-color: hsla(44,30%,47%,.60);
     margin: auto;
     /* border-radius: 25px; */
+}
+.bmiOutput {
+    font-weight: 600;
+    font-size: 30px;
 }
 
 </style>

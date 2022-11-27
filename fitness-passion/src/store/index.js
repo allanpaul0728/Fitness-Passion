@@ -1591,6 +1591,20 @@ export default new Vuex.Store({
         ]
     },
     getters: {
+        filteredWorkouts: (state) => (filter) => {
+            let filteredWorkouts = state.workouts;
+            if(filteredWorkouts) {
+            if(filter.chest) { filteredWorkouts = filteredWorkouts.filter( workout => workout.program.includes('chest'))}
+            if(filter.shoulder) { filteredWorkouts = filteredWorkouts.filter( workout => workout.program.includes('shoulder'))}
+            if(filter.back) { filteredWorkouts = filteredWorkouts.filter( workout => workout.program.includes('back'))}
+            if(filter.biceps) { filteredWorkouts = filteredWorkouts.filter( workout => workout.program.includes('biceps'))}
+            if(filter.triceps) { filteredWorkouts = filteredWorkouts.filter( workout => workout.program.includes('triceps'))}
+            if(filter.legs) { filteredWorkouts = filteredWorkouts.filter( workout => workout.program.includes('legs'))}
+            if(filter.forearm) { filteredWorkouts = filteredWorkouts.filter( workout => workout.program.includes('forearm'))}
+            if(filter.abdominal) { filteredWorkouts = filteredWorkouts.filter( workout => workout.program.includes('abdominal'))}
+            }
+            return filteredWorkouts;
+        },
         workouts: function (state) {
             return state.workouts;
         }
