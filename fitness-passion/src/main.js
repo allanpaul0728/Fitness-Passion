@@ -11,6 +11,8 @@ import signUp from './components/signUp'
 import bmiCalc from './components/bmiCalc'
 import bmiMetric from './components/bmiMetric'
 import bmiUS from './components/bmiUS'
+import addExercise from './components/addExercise'
+import updateExer from './components/updateExer'
 import workoutsProg from './components/workoutsProg'
 
 import store from './store'
@@ -50,6 +52,16 @@ const routes = [
         path: "/workouts",
         name: "workouts",
         component: workoutsProg
+    },
+    {
+        path: "/post",
+        name: "addExercise",
+        component: addExercise
+    },
+    {
+        path: "/updateworkout/:workoutId",
+        name: "updateExer",
+        component: updateExer
     }
   ]
 

@@ -38,6 +38,10 @@
           <label class="form-label">Photo Url</label>
           <input type="photo_url" class="form-control" v-model="photoUrl">
         </div>
+        <div class="mt-2 me-5 mx-5 text-left">
+          <label class="form-label">Workout Rate</label>
+          <input type="workout_rate" class="form-control" v-model="workoutRate">
+        </div>
         <div class="pb-3 mt-3 mx-5 text-left">
           <button class="btn btn-secondary btn-md" v-on:click="editPostedData">Update</button>
         </div>
@@ -64,6 +68,7 @@
         restTime: "",
         procedure: "",
         photoUrl: "",
+        workoutRate: "",
       };
     },
     async created() {
@@ -84,6 +89,8 @@
                 restTime: this.restTime,
                 procedure: this.procedure,
                 photoUrl: this.photoUrl,
+                workoutRate: this.workoutRate,
+                name: params.name,
             };
             try {
                 await axios.post(baseAPIUrl + "/workout/", postWorkoutData)

@@ -322,6 +322,11 @@
         });
     },
   },
+  methods: {},
+  async created() {
+    const response = await axios.get(baseAPIUrl + "/workout");
+    this.workout = response.data;
+  }
   }
   </script>
   
