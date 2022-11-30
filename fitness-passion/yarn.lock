@@ -1909,6 +1909,11 @@
   "resolved" "https://registry.npmjs.org/astral-regex/-/astral-regex-2.0.0.tgz"
   "version" "2.0.0"
 
+"async@^1.5.2":
+  "integrity" "sha512-nSVgobk4rv61R9PUSDtYt7mPVB2olxNR5RWJcAsH676/ef11bUZwvu7+RGYrYauVdDPcO519v68wRhXQtxsV9w=="
+  "resolved" "https://registry.npmjs.org/async/-/async-1.5.2.tgz"
+  "version" "1.5.2"
+
 "async@^2.6.4":
   "integrity" "sha512-mzo5dfJYwAn29PeiJ0zvwTo04zj8HDJj0Mn8TD7sno7q12prdbnasKJHhkm2c1LgrhlJ0teaea8860oxi51mGA=="
   "resolved" "https://registry.npmjs.org/async/-/async-2.6.4.tgz"
@@ -3268,7 +3273,7 @@
   "resolved" "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.2.tgz"
   "version" "1.15.2"
 
-"form-data@^4.0.0":
+"form-data@^4.0.0", "form-data@latest":
   "integrity" "sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww=="
   "resolved" "https://registry.npmjs.org/form-data/-/form-data-4.0.0.tgz"
   "version" "4.0.0"
@@ -5799,6 +5804,15 @@
   dependencies:
     "escalade" "^3.1.1"
     "picocolors" "^1.0.0"
+
+"uploadcare@^0.4.8":
+  "integrity" "sha512-XhPOaKfM5hq27nbOCfN9BiGYtirRxPiNq6/PoOKNmmq6rlCGeuUGckoI4iR0CuH6Th0KIQ91wRLpl0Rg2L2YNw=="
+  "resolved" "https://registry.npmjs.org/uploadcare/-/uploadcare-0.4.8.tgz"
+  "version" "0.4.8"
+  dependencies:
+    "async" "^1.5.2"
+    "form-data" "latest"
+    "minimist" "^1.2.0"
 
 "uri-js@^4.2.2":
   "integrity" "sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg=="

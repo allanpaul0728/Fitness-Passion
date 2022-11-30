@@ -160,6 +160,8 @@
   
   <script>
   // import workoutsProg from './workoutsProg'
+  import axios from 'axios'
+  const baseAPIUrl="http://localhost:3000"
   
   export default {
     name: 'homeView',
