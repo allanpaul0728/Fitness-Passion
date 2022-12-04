@@ -14,6 +14,7 @@ import bmiUS from './components/bmiUS'
 import addExercise from './components/addExercise'
 import updateExer from './components/updateExer'
 import workoutsProg from './components/workoutsProg'
+import WorkoutInfo from './components/WorkoutInfo'
 
 import store from './store'
 
@@ -59,9 +60,14 @@ const routes = [
         component: addExercise
     },
     {
-        path: "/updateworkout/:workoutId",
+        path: "/UpdateWorkout/:workoutId",
         name: "updateExer",
         component: updateExer
+    },
+    {
+        path: "/WorkoutInfo/:workoutId",
+        name: "WorkoutInfo",
+        component: WorkoutInfo
     }
   ]
 

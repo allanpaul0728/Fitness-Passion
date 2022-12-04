@@ -12,7 +12,7 @@
                 </ul>
                 </li>
             </ul>
-            <!-- {{ workouts }} -->
+            {{ workouts }}
         </div>
       </div>
     </div>
@@ -24,7 +24,7 @@ export default {
     name: 'workoutsProg',
     data: function () {
         return {
-            // workouts: this.$store.state.workouts.length
+            workouts: this.$store.state.workouts.length
         }
     },
     computed: {

@@ -30,11 +30,6 @@
 </template>
 
 <script>
-// import homeView from './components/homeView'
-// import loginView from './components/loginView'
-// import bmiCalc from './components/bmiCalc'
-// import workoutsProg from './components/workoutsProg'
-// import bmiMetric from './components/bmiMetric'
 
 export default {
   name: 'App',
@@ -43,11 +38,7 @@ export default {
     };
   },
   components: {
-    // homeView,
-    // loginView,
-    // bmiCalc,
-    // workoutsProg,
-    // bmiMetric,
+    
   },
 }
 </script>
