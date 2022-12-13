@@ -25,7 +25,7 @@ Vue.use(Vuex);
 
 const routes = [
     {
-        path: "/home",
+        path: "/",
         name: "homeView",
         component: homeView
     },

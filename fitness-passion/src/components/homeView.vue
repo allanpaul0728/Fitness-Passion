@@ -51,66 +51,66 @@
         <div class="mt-2 mx-5 text-left">
           <label class="form-label">Program</label>
           <div class="form-check">
-            <input class="form-check-input" :class="muscleChest" type="checkbox" v-model="chest" value="chest" id="flexCheckDefault">
+            <input class="form-check-input" type="checkbox" v-model="chest" @change="toggleChest" value="chest" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
               Chest
             </label>
             <div class="form-check">
-            <input class="form-check-input" type="checkbox" v-model="upperchest" value="upperchest" id="flexCheckDefault">
+            <input class="form-check-input" type="checkbox" v-model="upperchest" @change="toggleSubChest" value="upperchest" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
               Upper Chest
             </label>
             </div>
             <div class="form-check">
-            <input class="form-check-input" type="checkbox" v-model="midchest" value="midchest" id="flexCheckDefault">
+            <input class="form-check-input" type="checkbox" v-model="midchest" @change="toggleSubChest" value="midchest" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
               Mid Chest
             </label>
             </div>
             <div class="form-check">
-            <input class="form-check-input" type="checkbox" v-model="lowerchest" value="lowerchest" id="flexCheckDefault">
+            <input class="form-check-input" type="checkbox" v-model="lowerchest" @change="toggleSubChest" value="lowerchest" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
               Lower Chest
             </label>
             </div>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" v-model="shoulder" value="shoulder" id="flexCheckDefault">
+            <input class="form-check-input" type="checkbox" v-model="shoulder" @change="toggleShoulder" value="shoulder" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
               Shoulder
             </label>
             <div class="form-check">
-            <input class="form-check-input" type="checkbox" v-model="frontdelt" value="frontdelt" id="flexCheckDefault">
+            <input class="form-check-input" type="checkbox" v-model="frontdelt" @change="toggleSubShoulders" value="frontdelt" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
               Front Delt
             </label>
             </div>
             <div class="form-check">
-            <input class="form-check-input" type="checkbox" v-model="middelt" value="middelt" id="flexCheckDefault">
+            <input class="form-check-input" type="checkbox" v-model="middelt" @change="toggleSubShoulders" value="middelt" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
               Mid Delt
             </label>
             </div>
             <div class="form-check">
-            <input class="form-check-input" type="checkbox" v-model="reardelt" value="reardelt" id="flexCheckDefault">
+            <input class="form-check-input" type="checkbox" v-model="reardelt" @change="toggleSubShoulders" value="reardelt" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
               Rear Delt
             </label>
             </div>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" v-model="back" value="back" id="flexCheckDefault">
+            <input class="form-check-input" type="checkbox" v-model="back" @change="toggleBack" value="back" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
               Back
             </label>
             <div class="form-check">
-            <input class="form-check-input" type="checkbox" v-model="upperback" value="upperback" id="flexCheckDefault">
+            <input class="form-check-input" type="checkbox" v-model="upperback" @change="toggleSubBacks" value="upperback" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
               Upper Back
             </label>
             </div>
             <div class="form-check">
-            <input class="form-check-input" type="checkbox" v-model="midandlowerback" value="midandlowerback" id="flexCheckDefault">
+            <input class="form-check-input" type="checkbox" v-model="midandlowerback" @change="toggleSubBacks" value="midandlowerback" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
               Mid & Lower Back
             </label>
@@ -153,7 +153,7 @@
           </router-link>
         </div>
         <!-- <workoutsProg/> -->
-        <!-- <div class="row justify-content-center">
+        <div class="row justify-content-center">
           <div class="col-12 col-md-8 col-lg-4">
             <div class="mt-3" v-for="(w, index) in searchFilter" v-bind:key="index">
               <div class="card">
@@ -168,7 +168,7 @@
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
         </div>
         </div>
@@ -342,24 +342,84 @@
           return true;
         });
     },
-    muscleChest() {
-      return this.chest
-      .filter((c) => {
-        console.log(c)
-        if (this.upperchest && this.midchest && this.lowerchest) {
-          return c.chest.includes("upper chest") || c.chest.includes("mid chest") || c.chest.includes("lower chest")
-        } else if (this.upperchest && this.midchest) {
-          return c.chest.includes("upper chest") || c.chest.includes("mid chest")
-        }
-      })
-    }
   },
-  methods: {},
+  methods: {
+    toggleChest() {
+      if(this.chest) {
+        this.upperchest = true,
+        this.midchest = true,
+        this.lowerchest = true
+      } else {
+        this.upperchest = false,
+        this.midchest = false,
+        this.lowerchest = false 
+      }
+    },
+    toggleSubChest(){
+      if(!this.upperchest) {
+        return this.chest = false
+      }
+      if(!this.midchest) {
+        return this.chest = false
+      }
+      if(!this.lowerchest) {
+        return this.chest = false
+      }
+      if(!this.upperchest || this.midchest || this.lowerchest) {
+        return this.chest = true
+      }
+    },
+    toggleShoulder() {
+      if(this.shoulder) {
+        this.frontdelt = true,
+        this.middelt = true,
+        this.reardelt = true
+      } else {
+        this.frontdelt = false,
+        this.middelt = false,
+        this.reardelt = false 
+      }
+    },
+    toggleSubShoulders(){
+      if(!this.frontdelt) {
+        return this.shoulder = false
+      }
+      if(!this.middelt) {
+        return this.shoulder = false
+      }
+      if(!this.reardelt) {
+        return this.shoulder = false
+      }
+      if(!this.frontdelt || this.middelt || this.reardelt) {
+        return this.shoulder = true
+      }
+    },
+    toggleBack() {
+      if(this.back) {
+        this.upperback = true,
+        this.midandlowerback = true
+      } else {
+        this.upperback = false,
+        this.midandlowerback = false
+      }
+    },
+    toggleSubBacks(){
+      if(!this.upperback) {
+        return this.back = false
+      }
+      if(!this.midandlowerback) {
+        return this.back = false
+      }
+      if(!this.upperback || this.midandlowerback) {
+        return this.back = true
+      }
+    },
+  },
   async created() {
     const response = await axios.get(baseAPIUrl + "/workout");
     this.workout = response.data;
-  }
-  }
+  },
+}  
   </script>
   
   <!-- Add "scoped" attribute to limit CSS to this component only -->
