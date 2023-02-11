@@ -44,7 +44,7 @@
                 <div class="pb-3 mt-3 mx-5 text-left">
                     <button v-on:click="BMIresult" class="btn btn-secondary btn-md">Calculate</button>
                 </div>
-                <div class="pt-4 me-5 mx-5 text-left">
+                <div class="pt-4 pb-4 me-5 mx-5 text-left">
                 <label class="form-label">BMI Result:</label>
                 <div class="bmiOutput">{{ bmiOutput }}</div>
             </div>

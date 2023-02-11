@@ -87,11 +87,11 @@
                 name: params.name,
             };
             try {
-                await axios.post(baseAPIUrl + "/workout/add", postWorkoutData)
+                await axios.post(baseAPIUrl + "/post", postWorkoutData)
             } catch (e) {
                 console.log("Failed to post new workout");
             }
-            this.$router.push("/workout");
+            this.$router.push("/");
          }
     }
   }

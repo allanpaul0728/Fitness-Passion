@@ -32,7 +32,7 @@ export default {
     name: 'WorkoutInfo',
     async created() {
         const workoutId = this.$route.params.workoutId;
-        const response = await axios.get(baseAPIUrl + "/workout/" + workoutId);
+        const response = await axios.get(baseAPIUrl + "/" + workoutId);
         this.workout = response.data
     },
     data: function () {
