@@ -27,7 +27,7 @@
 
 <script>
 import axios from 'axios'
-const baseAPIUrl="http://localhost:3000";
+const baseAPIUrl="https://3000-allanpaul07-fitnessenth-j4vy0aia5td.ws-us90.gitpod.io/";
 export default {
     name: 'WorkoutInfo',
     async created() {

@@ -148,14 +148,14 @@
           </div>
         </div>
         <div class="pb-3 mt-3 mx-5 text-left">
-          <router-link to="/WorkoutInfo">
-          <button class="btn btn-secondary btn-md">Submit</button>
-          </router-link>
+          <!-- <router-link to="/WorkoutInfo"> -->
+          <button class="btn btn-secondary btn-md" @click="searchFilter">Submit</button>
+          <!-- </router-link> -->
         </div>
         <!-- <workoutsProg/> -->
         <div class="row justify-content-center">
           <div class="col-12 col-md-8 col-lg-4">
-            <div class="mt-3" v-for="(w, index) in searchFilter" v-bind:key="index">
+            <div class="mt-3" v-for="(w, index) in workouts" v-bind:key="index">
               <div class="card">
                 <div class="card-body">
                   <h3 class="card-title">{{ w.muscle }}</h3>
@@ -176,10 +176,11 @@
   
   <script>
   import axios from 'axios'
-  const baseAPIUrl="http://localhost:3000"
+  const baseAPIUrl="https://3000-allanpaul07-fitnessenth-j4vy0aia5td.ws-us90.gitpod.io/"
   
   export default {
     name: 'homeView',
+    props: 'workouts',
     data: function() {
       return {
         workouts: [],
@@ -189,6 +190,7 @@
         gender: "male",
         fitnessgoal: "",
         difficulty: "",
+        program: "",
         chest: false,
         upperchest: false,
         midchest: false,
@@ -207,142 +209,6 @@
         abdominal: false,
       };
     },
-    computed: {
-    searchFilter() {
-      return this.workouts
-        .filter((w) => {
-          console.log(w)
-          if (this.chest && this.chest && this.back && this.biceps && this.triceps && this.legs && this.forearm && this.abdominal) {
-            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
-              w.program.includes("biceps") || w.program.includes("triceps") || w.program.includes("legs") ||
-              w.program.includes("forearm") || w.program.includes("abdominal");
-          }
-          // Start of 7 Programs
-          if (this.chest && this.shoulder && this.back && this.biceps && this.triceps && this.legs && this.forearm) {
-            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
-            w.program.includes("biceps") || w.program.includes("triceps") || w.program.includes("legs") ||
-            w.program.includes("forearm");
-          }
-          if (this.chest && this.shoulder && this.back && this.biceps && this.triceps && this.legs && this.abdominal) {
-            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
-            w.program.includes("biceps") || w.program.includes("triceps") || w.program.includes("legs") ||
-            w.program.includes("abdominal");
-          }
-          if (this.chest && this.shoulder && this.back && this.biceps && this.triceps && this.forearm && this.abdominal) {
-            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
-            w.program.includes("biceps") || w.program.includes("triceps") || w.program.includes("forearm") ||
-            w.program.includes("abdominal");
-          }
-          if (this.chest && this.shoulder && this.back && this.biceps && this.legs && this.forearm && this.abdominal) {
-            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
-            w.program.includes("biceps") || w.program.includes("legs") || w.program.includes("forearm") ||
-            w.program.includes("abdominal");
-          }
-          if (this.chest && this.shoulder && this.back && this.triceps && this.legs && this.forearm && this.abdominal) {
-            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
-            w.program.includes("triceps") || w.program.includes("legs") || w.program.includes("forearm") ||
-            w.program.includes("abdominal");
-          }
-          if (this.chest && this.shoulder && this.biceps && this.triceps && this.legs && this.forearm && this.abdominal) {
-            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("biceps") ||
-            w.program.includes("triceps") || w.program.includes("legs") || w.program.includes("forearm") ||
-            w.program.includes("abdominal");
-          }
-          if (this.chest && this.back && this.biceps && this.triceps && this.legs && this.forearm && this.abdominal) {
-            return w.program.includes("chest") || w.program.includes("back") || w.program.includes("biceps") ||
-            w.program.includes("triceps") || w.program.includes("legs") || w.program.includes("forearm") ||
-            w.program.includes("abdominal");
-          }
-          if (this.shoulder && this.back && this.biceps && this.triceps && this.legs && this.forearm && this.abdominal) {
-            return w.program.includes("shoulder") || w.program.includes("back") || w.program.includes("biceps") ||
-            w.program.includes("triceps") || w.program.includes("legs") || w.program.includes("forearm") ||
-            w.program.includes("abdominal");
-          }
-          // End of 7 Programs
-          // Start of 6 Programs
-          if (this.chest && this.shoulder && this.back && this.biceps && this.triceps && this.legs) {
-            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
-            w.program.includes("biceps") || w.program.includes("triceps") || w.program.includes("legs");
-          }
-          if (this.chest && this.shoulder && this.back && this.biceps && this.triceps && this.abdominal) {
-            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
-            w.program.includes("biceps") || w.program.includes("triceps") || w.program.includes("abdominal");
-          }
-          if (this.chest && this.shoulder && this.back && this.biceps && this.forearm && this.abdominal) {
-            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
-            w.program.includes("biceps") || w.program.includes("forearm") || w.program.includes("abdominal");
-          }
-          if (this.chest && this.shoulder && this.back && this.legs && this.forearm && this.abdominal) {
-            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
-            w.program.includes("legs") || w.program.includes("forearm") || w.program.includes("abdominal");
-          }
-          if (this.chest && this.shoulder && this.triceps && this.legs && this.forearm && this.abdominal) {
-            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("triceps") ||
-            w.program.includes("legs") || w.program.includes("forearm") || w.program.includes("abdominal");
-          }
-          if (this.chest && this.biceps && this.triceps && this.legs && this.forearm && this.abdominal) {
-            return w.program.includes("chest") || w.program.includes("biceps") || w.program.includes("triceps") ||
-            w.program.includes("legs") || w.program.includes("forearm") || w.program.includes("abdominal");
-          }
-          if (this.back && this.biceps && this.triceps && this.legs && this.forearm && this.abdominal) {
-            return w.program.includes("back") || w.program.includes("biceps") || w.program.includes("triceps") ||
-            w.program.includes("legs") || w.program.includes("forearm") || w.program.includes("abdominal");
-          }
-          // End of 6 Programs
-          // Start of 5 Programs
-          if (this.chest && this.shoulder && this.back && this.biceps && this.triceps) {
-            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
-            w.program.includes("biceps") || w.program.includes("triceps");
-          }
-          if (this.chest && this.shoulder && this.back && this.biceps && this.abdominal) {
-            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
-            w.program.includes("biceps") || w.program.includes("abodminal");
-          }
-          if (this.chest && this.shoulder && this.back && this.forearm && this.abdominal) {
-            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
-            w.program.includes("forearm") || w.program.includes("abodminal");
-          }
-          if (this.chest && this.shoulder && this.legs && this.forearm && this.abdominal) {
-            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("legs") ||
-            w.program.includes("forearm") || w.program.includes("abodminal");
-          }
-          if (this.chest && this.triceps && this.legs && this.forearm && this.abdominal) {
-            return w.program.includes("chest") || w.program.includes("triceps") || w.program.includes("legs") ||
-            w.program.includes("forearm") || w.program.includes("abodminal");
-          }
-          if (this.biceps && this.triceps && this.legs && this.forearm && this.abdominal) {
-            return w.program.includes("biceps") || w.program.includes("triceps") || w.program.includes("legs") ||
-            w.program.includes("forearm") || w.program.includes("abodminal");
-          }
-          // End of 5 Programs
-          // Start of 4 Programs
-          if (this.chest && this.shoulder && this.back && this.biceps) {
-            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
-            w.program.includes("biceps");
-          }
-          if (this.chest && this.shoulder && this.back && this.abdominal) {
-            return w.program.includes("chest") || w.program.includes("shoulder") || w.program.includes("back") ||
-            w.program.includes("abdominal");
-          }
-          if (this.chest) {
-            return w.program.includes("chest");
-          }
-          if (this.shoulder) {
-            return w.program.includes("shoulder");
-          }
-          if (this.back) {
-            return w.program.includes("back");
-          }
-          return true;
-        })
-        .filter((w) => {
-          if (this.Difficulty != "" ) {
-            return (w.difficulty) <= this.difficulty;
-          }
-          return true;
-        });
-    },
-  },
   methods: {
     toggleChest() {
       if(this.chest) {
@@ -414,11 +280,23 @@
         return this.back = true
       }
     },
+    async searchFilter() {
+      console.log("random")
+
+      // const response = await axios.get(baseAPIUrl + 'workouts');
+
+      let response = await axios.get(baseAPIUrl + 'workouts', {
+        'fitnessgoal': this.fitnessgoal,
+        'difficulty': this.difficulty,
+        'program': this.program
+      });
+      this.workouts = response.data
+    }
   },
-  async created() {
-    const response = await axios.get(baseAPIUrl + "/workout");
-    this.workout = response.data;
-  },
+  // created: async function() {
+  //   const response = await axios.get(baseAPIUrl + 'workouts');
+  //   this.workouts = response.data;
+  // },
 }  
   </script>
   
@@ -429,6 +307,7 @@
     background-color: hsla(44,30%,47%,.60);
     margin: auto;
     border-radius: 25px;
+    font-weight: 1.5rem;
   }
   </style>
   
