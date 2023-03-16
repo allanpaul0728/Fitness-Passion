@@ -37,7 +37,7 @@ As a fitness enthusiast, I want to share my personal workouts yet effective to m
 
 ### Limitations or Bugs
 
-There is a warning in versions so there might be incompatibility in some functions.
+There is a warning regarding incorrect target, a target version in vueCompilerOptions.target in tsconfig.json
 
 ### Features Pending Implementation
 
