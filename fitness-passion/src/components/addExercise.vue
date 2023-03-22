@@ -53,7 +53,7 @@
   <script>
   // import workoutsProg from './workoutsProg'
   import axios from 'axios'
-  const baseAPIUrl="http://localhost:3000"
+  const BASE_APIUrl="http://localhost:3000"
   
   export default {
     name: 'addExercise',
@@ -87,7 +87,7 @@
                 name: params.name,
             };
             try {
-                await axios.post(baseAPIUrl + "/post", postWorkoutData)
+                await axios.post(BASE_APIUrl + "/post", postWorkoutData)
             } catch (e) {
                 console.log("Failed to post new workout");
             }

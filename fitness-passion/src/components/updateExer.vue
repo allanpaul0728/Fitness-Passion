@@ -53,7 +53,7 @@
   <script>
   // import workoutsProg from './workoutsProg'
   import axios from 'axios'
-  const baseAPIUrl="http://localhost:3000"
+  const BASE_APIUrl="http://localhost:3000"
   
   export default {
     name: 'updateExer',
@@ -72,9 +72,7 @@
       };
     },
     async created() {
-        const response = await axios.get(
-            baseAPIUrl + "/workout/" + this.$route.params.workoutId
-        );
+        const response = await axios.get(BASE_APIUrl + "/workout/" + this.$route.params.workoutId);
         this.workout = response.data;
     },
     methods: {
@@ -93,7 +91,7 @@
                 name: params.name,
             };
             try {
-                await axios.put(baseAPIUrl + "/", this.$route.params.workoutId, postWorkoutData)
+                await axios.put(BASE_APIUrl + "/", this.$route.params.workoutId, postWorkoutData)
             } catch (e) {
                 console.log("Failed to post new workout");
             }
