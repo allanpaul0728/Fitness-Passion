@@ -48,29 +48,73 @@ There is a warning regarding incorrect target, a target version in vueCompilerOp
 1. Visual Studo Code (VSC) & GitPod
     - a platform used for creating this web application
 
-2. GitHub
+2. [GitHub](https://github.com/)
     - as internet hosting service for web application or software development
 
 3. VueJS
     - a frontend JavaScript framework used for creating this web application
 
-4. MongoDB
+4. [MongoDB](https://www.mongodb.com/)
     - a database program used to store the datum applied in this application
 
-5. Bootstrap
+5. [Bootstrap](https://getbootstrap.com/docs/5.2/getting-started/introduction/)
     - a platform used to design the overall frontend framework of this web application
 
 6. Vuex and Vue-router
     - a function used to enable the singa page application (SPA) of this project web application
 
+7. [Axios](https://axios-http.com/docs/intro)
+    - used to get the API data endpoint
+
 ## Testing
+
+1. Get or Show workout data details
+2. Add or Post new workout routine or exercise
+3. Edit or Update existing exercise or workout routine
+4. Delete existing workout data
+5. Sign Up or Register new account
+6. BMI Calculator to check body mass index
 
 ## Test Cases
 
-## Test Accounts
+Case Description | Expected Result
+------------ | ------------
+By clicking "submit" button | By filling in or checking the box of desired program, it will direct you to workout data result, showing the workout details.
+------------ | ------------
+By clicking "Add" button | It will bring you to a page where you input the new workout or exercise data
+------------ | ------------
+By clicking "Update" button | It will bring you to a page where you can edit the existing workout data
+------------ | ------------
+By clicking "Delete" button | The workout data will be removed
+------------ | ------------
+By clicking "Sign Up" button | By providing the required information, it will allow you to create or register new account
+------------ | ------------
+By clicking "BMI Calculator" button on nav | It will direct you to a page where you can check and determine your body mass index
 
 ## Credits
 
-1. Source or Website Links
+#### Source or Website Links
+    - Below are the source or websites where the workout datum created
 
-2. Assigned TAs for Project Consultation
+* [Barbend](https://barbend.com/)
+* [Mens Health](https://www.menshealth.com/)
+* [Onnit](https://www.onnit.com/)
+* [Born Tough](https://www.borntough.com/)
+* [Body Building](https://www.bodybuilding.com/)
+* [Set For Set](https://www.setforset.com/)
+* [Muscle & Fitness](https://www.muscleandfitness.com/)
+* [Strength Log](https://www.strengthlog.com/)
+* [Fitness Volt](https://fitnessvolt.com/)
+* [Life Vault](https://liftvault.com/)
+* [Chunk Fitness](https://chunkfitness.com/)
+* [Anabolic Aliens](https://anabolicaliens.com/)
+* [Seriously Strong Training](https://seriouslystrongtraining.com/)
+* [FitBod](https://fitbod.me/)
+* [HealthLine](https://www.healthline.com/)
+* [The Fitness Tribe](https://thefitnesstribe.com/)
+* [Jacked Gorilla](https://jackedgorilla.com/)
+* [Many Of Many](https://manofmany.com/)
+* [GQ](https://www.gq.com/)
+
+#### Assigned TAs for Project Consultation
+    
