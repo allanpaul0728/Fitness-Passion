@@ -176,7 +176,7 @@
   
   <script>
   import axios from 'axios'
-  const BASE_APIUrl="https://3000-allanpaul07-fitnessenth-j4vy0aia5td.ws-us90.gitpod.io/"
+  const BASE_APIUrl="http://localhost:3000"
   
   export default {
     name: 'homeView',
