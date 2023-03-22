@@ -21,7 +21,7 @@ As a fitness enthusiast, I want to share my personal workouts yet effective to m
 
 ### Wireframes
 
-* Please click the link to see the wireframes, mockups or diagrams used in UI/UX process. [Here](fitness-passion/src/assets/WireframeWorkoutWeb.pdf)
+* Please click the link to see the wireframes, mockups or diagrams used in UI/UX process. [Here](src/assets/WireframeWorkoutWeb.pdf)
 
 ### Fonts & Colours
 
@@ -80,15 +80,10 @@ There is a warning regarding incorrect target, a target version in vueCompilerOp
 Case Description | Expected Result
 ------------ | ------------
 By clicking "submit" button | By filling in or checking the box of desired program, it will direct you to workout data result, showing the workout details.
------------- | ------------
 By clicking "Add" button | It will bring you to a page where you input the new workout or exercise data
------------- | ------------
 By clicking "Update" button | It will bring you to a page where you can edit the existing workout data
------------- | ------------
 By clicking "Delete" button | The workout data will be removed
------------- | ------------
 By clicking "Sign Up" button | By providing the required information, it will allow you to create or register new account
------------- | ------------
 By clicking "BMI Calculator" button on nav | It will direct you to a page where you can check and determine your body mass index
 
 ## Credits
