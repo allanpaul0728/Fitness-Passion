@@ -19,12 +19,12 @@ export default {
     name: "bmiCalc",
     data: function() {
         return {
-            // username: "",
-            // age:"",
-            // gender: "male",
-            // weight: "",
-            // height: "",
-            // bmi: 0,
+            username: "",
+            age:"",
+            gender: "male",
+            weight: "",
+            height: "",
+            bmi: 0,
         };
     }
 }
@@ -40,6 +40,7 @@ export default {
 .nav-item {
     color: black;
     font-weight: 10px;
+    color: white;
 }
 
 </style>
