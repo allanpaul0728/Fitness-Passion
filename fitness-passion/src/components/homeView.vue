@@ -191,22 +191,22 @@
         fitnessgoal: "",
         difficulty: "",
         program: "",
-        chest: false,
-        upperchest: false,
-        midchest: false,
-        lowerchest: false,
-        shoulder: false,
-        frontdelt: false,
-        middelt: false,
-        reardelt: false,
-        back: false,
-        upperback: false,
-        midandlowerback: false,
-        biceps: false,
-        triceps: false,
-        legs: false,
-        forearm: false,
-        abdominal: false,
+        chest: [],
+        upperchest: [],
+        midchest: [],
+        lowerchest: [],
+        shoulder: [],
+        frontdelt: [],
+        middelt: [],
+        reardelt: [],
+        back: [],
+        upperback: [],
+        midandlowerback: [],
+        biceps: [],
+        triceps: [],
+        legs: [],
+        forearm: [],
+        abdominal: [],
       };
     },
   methods: {
@@ -285,18 +285,32 @@
 
       // const response = await axios.get(baseAPIUrl + 'workouts');
 
-      let response = await axios.get(baseAPIUrl + 'workouts', {
-        'fitnessgoal': this.fitnessgoal,
-        'difficulty': this.difficulty,
-        'program': this.program
+      let response = await axios.post(baseAPIUrl + 'workouts', {
+        'programChest': this.chest.toString(),
+        'programUpperChest': this.upperchest.toString(),
+        'programMidChest': this.midchest.toString(),
+        'programLowerChest': this.lowerchest.toString(),
+        'programShoulder': this.shoulder.toString(),
+        'programFrontDelt': this.frontdelt.toString(),
+        'programMidDelt': this.middelt.toString(),
+        'programRearDelt': this.reardelt.toString(),
+        'programBack': this.back.toString(),
+        'programUpperBack': this.upperback.toString(),
+        'programMidandLowerBack': this.midandlowerback.toString(),
+        'programBiceps': this.biceps.toString(),
+        'programTriceps': this.triceps.toString(),
+        'programLegs': this.legs.toString(),
+        'programForearm': this.forearm.toString(),
+        'programAbdominal': this.abdominal.toString(),
+        
       });
       this.workouts = response.data
     }
   },
-  // created: async function() {
-  //   const response = await axios.get(baseAPIUrl + 'workouts');
-  //   this.workouts = response.data;
-  // },
+  async created() {
+    let response = await axios.get(baseAPIUrl + 'workouts');
+    this.workouts = response.data;
+  },
 }  
   </script>
   
