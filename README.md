@@ -21,7 +21,7 @@ As a fitness enthusiast, I want to share my personal workouts yet effective to m
 
 ### Wireframes
 
-* Please click the link to see the wireframes, mockups or diagrams used in UI/UX process. [Link]
+* Please click the link to see the wireframes, mockups or diagrams used in UI/UX process. [Here](fitness-passion/src/assets/WireframeWorkoutWeb.pdf)
 
 ### Fonts & Colours
 
