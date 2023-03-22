@@ -39,7 +39,7 @@
           </div>
         </div>
         <div class="pb-3 mt-3 mx-5 text-left">
-          <button class="btn btn-secondary btn-md">Submit</button>
+          <button class="btn btn-secondary btn-md" v-on:click="Submit">Submit</button>
         </div>
       </div>
     </div>
@@ -47,6 +47,9 @@
 </template>
 
 <script>
+import axios from 'axios';
+const BASE_APIUrl = 'https://3000-allanpaul07-fitnessenth-j4vy0aia5td.ws-us90.gitpod.io/'
+
 export default {
   name: 'signUp',
   props: {
@@ -61,15 +64,26 @@ export default {
       error: []
     }
   },
-  computed: {
-    validFname: function() {
-      if (this.fullname.length >= 7) {
-        return true;
-      } else {
-        return false;
+  methods: {
+    async Submit() {
+      let postAccount = {
+        'fullname': this.fullname,
+        'email': this.email,
+        'username': this.username,
+        'password': this.password
       }
+      await axios.post(BASE_APIUrl + "/accounts", postAccount);
     }
-  }
+  },
+  // computed: {
+  //   validFname: function() {
+  //     if (this.fullname.length >= 9) {
+  //       return true;
+  //     } else {
+  //       return false;
+  //     }
+  //   }
+  // }
 }
 </script>
 
@@ -84,18 +98,5 @@ export default {
     margin: auto;
     border-radius: 25px;
   }
-/* h3 {
-  margin: 40px 0 0;
-} */
-/* ul {
-  list-style-type: none;
-  padding: 0;
-} */
-/* li {
-  display: inline-block;
-  margin: 0 10px;
-} */
-/* a {
-  color: #42b983;
-} */
+
 </style>

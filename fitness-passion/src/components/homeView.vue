@@ -176,7 +176,7 @@
   
   <script>
   import axios from 'axios'
-  const baseAPIUrl="https://3000-allanpaul07-fitnessenth-j4vy0aia5td.ws-us90.gitpod.io/"
+  const BASE_APIUrl="https://3000-allanpaul07-fitnessenth-j4vy0aia5td.ws-us90.gitpod.io/"
   
   export default {
     name: 'homeView',
@@ -285,7 +285,7 @@
 
       // const response = await axios.get(baseAPIUrl + 'workouts');
 
-      let response = await axios.post(baseAPIUrl + 'workouts', {
+      let response = await axios.post(BASE_APIUrl + 'workouts', {
         'programChest': this.chest.toString(),
         'programUpperChest': this.upperchest.toString(),
         'programMidChest': this.midchest.toString(),
@@ -308,7 +308,7 @@
     }
   },
   async created() {
-    let response = await axios.get(baseAPIUrl + 'workouts');
+    let response = await axios.get(BASE_APIUrl + 'workouts');
     this.workouts = response.data;
   },
 }  
